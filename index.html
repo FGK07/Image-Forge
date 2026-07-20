@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ImageForge | PNG to WebP Converter</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/variables.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="css/dark.css">
+
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                <div>
+
+                    <h1>ImageForge</h1>
+
+                    <p>Modern PNG → WebP Converter</p>
+
+                </div>
+
+            </div>
+
+            <button id="themeToggle">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </header>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h2>
+
+                Convert PNG to WebP
+
+            </h2>
+
+            <p>
+
+                Fast • Offline • Modern • Multiple Images
+
+            </p>
+
+        </section>
+
+        <!-- UPLOAD -->
+
+        <section class="upload-section">
+
+            <div class="drop-zone" id="dropZone">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <h3>
+
+                    Drag & Drop PNG Here
+
+                </h3>
+
+                <p>
+
+                    or click to browse
+
+                </p>
+
+                <input type="file" id="imageInput" accept=".png" multiple>
+
+            </div>
+
+        </section>
+
+        <!-- CONTROL -->
+
+        <section class="control-section">
+
+            <div class="quality-card">
+
+                <div class="quality-header">
+
+                    <span>
+
+                        WebP Quality
+
+                    </span>
+
+                    <span id="qualityValue">
+
+                        90%
+
+                    </span>
+
+                </div>
+
+                <input id="quality" type="range" min="10" max="100" value="90">
+
+            </div>
+
+        </section>
+
+        <!-- STATISTICS -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-images"></i>
+
+                <h3 id="totalImages">
+
+                    0
+
+                </h3>
+
+                <span>
+
+                    Images
+
+                </span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-hard-drive"></i>
+
+                <h3 id="originalSize">
+
+                    0 MB
+
+                </h3>
+
+                <span>
+
+                    Original
+
+                </span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-file-export"></i>
+
+                <h3 id="convertedSize">
+
+                    0 MB
+
+                </h3>
+
+                <span>
+
+                    Converted
+
+                </span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3 id="savedPercent">
+
+                    0%
+
+                </h3>
+
+                <span>
+
+                    Saved
+
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- GALLERY -->
+
+        <section class="gallery">
+
+            <div id="imageContainer">
+
+                <!-- Card Image -->
+
+            </div>
+
+        </section>
+
+        <!-- DOWNLOAD -->
+
+        <section class="download-section">
+
+            <button id="downloadAll">
+
+                <i class="fa-solid fa-file-zipper"></i>
+
+                Download All ZIP
+
+            </button>
+
+            <button id="clearAll">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear All
+
+            </button>
+
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+
+                Made with ❤️ using HTML, CSS & Vanilla JavaScript
+
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/ui.js"></script>
+
+    <script src="js/dragdrop.js"></script>
+
+    <script src="js/converter.js"></script>
+
+    <script src="js/download.js"></script>
+
+    <script src="js/stats.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/zip.js"></script>
+
+</body>
+
+</html>
