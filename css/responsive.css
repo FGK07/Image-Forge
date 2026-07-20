@@ -1,0 +1,267 @@
+/* ==========================================================
+    RESPONSIVE STYLES
+========================================================== */
+
+/* ==========================================================
+    Large Laptop (≤ 1200px)
+========================================================== */
+
+@media (max-width: 1200px) {
+  .app {
+    padding: 35px 25px 70px;
+  }
+
+  .hero h2 {
+    font-size: 44px;
+  }
+
+  .image-preview {
+    gap: 15px;
+  }
+}
+
+/* ==========================================================
+    Laptop (≤ 992px)
+========================================================== */
+
+@media (max-width: 992px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .image-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-arrow {
+    transform: rotate(90deg);
+  }
+
+  .image-info {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h2 {
+    font-size: 38px;
+  }
+}
+
+/* ==========================================================
+    Tablet (≤ 768px)
+========================================================== */
+
+@media (max-width: 768px) {
+  .app {
+    padding: 25px 18px 60px;
+  }
+
+  .header {
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  .logo {
+    flex-direction: column;
+  }
+
+  .hero {
+    margin-bottom: 35px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .drop-zone {
+    min-height: 260px;
+
+    padding: 30px;
+  }
+
+  .drop-zone i {
+    font-size: 60px;
+  }
+
+  .drop-zone h3 {
+    font-size: 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+  }
+
+  .image-header {
+    flex-direction: column;
+
+    gap: 10px;
+
+    align-items: flex-start;
+  }
+
+  .image-footer {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .download-section {
+    flex-direction: column;
+  }
+
+  .download-section button {
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+    Mobile (≤ 576px)
+========================================================== */
+
+@media (max-width: 576px) {
+  .hero h2 {
+    font-size: 28px;
+
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-header {
+    flex-direction: column;
+
+    gap: 10px;
+
+    align-items: flex-start;
+  }
+
+  .drop-zone {
+    min-height: 220px;
+
+    padding: 25px;
+  }
+
+  .drop-zone h3 {
+    font-size: 20px;
+  }
+
+  .drop-zone p {
+    font-size: 14px;
+  }
+
+  .preview-box img {
+    height: 180px;
+  }
+
+  .image-preview {
+    padding: 20px;
+  }
+
+  .image-info {
+    padding: 0 20px 20px;
+  }
+
+  .progress-wrapper {
+    padding: 0 20px 20px;
+  }
+
+  .image-footer {
+    padding: 20px;
+  }
+
+  .download-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+/* ==========================================================
+    Small Mobile (≤ 400px)
+========================================================== */
+
+@media (max-width: 400px) {
+  .app {
+    padding: 20px 15px 50px;
+  }
+
+  .logo h1 {
+    font-size: 24px;
+  }
+
+  .logo p {
+    font-size: 13px;
+  }
+
+  .logo i {
+    width: 55px;
+
+    height: 55px;
+
+    font-size: 22px;
+  }
+
+  #themeToggle {
+    width: 46px;
+
+    height: 46px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .drop-zone {
+    min-height: 200px;
+  }
+
+  .drop-zone i {
+    font-size: 50px;
+  }
+
+  .drop-zone h3 {
+    font-size: 18px;
+  }
+
+  .quality-card {
+    padding: 20px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-card i {
+    width: 60px;
+
+    height: 60px;
+
+    font-size: 22px;
+  }
+
+  .stat-card h3 {
+    font-size: 24px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
