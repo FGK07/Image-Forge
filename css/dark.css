@@ -1,0 +1,169 @@
+/* ==========================================================
+    DARK MODE
+========================================================== */
+
+[data-theme="dark"] {
+  /* ==========================================
+        COLORS
+    ========================================== */
+
+  --background: #0f172a;
+
+  --surface: #1e293b;
+
+  --surface-hover: #334155;
+
+  --text: #f8fafc;
+
+  --text-secondary: #cbd5e1;
+
+  --text-light: #94a3b8;
+
+  --border: #334155;
+
+  --border-hover: #475569;
+
+  /* ==========================================
+        GLASS
+    ========================================== */
+
+  --glass-bg: rgba(30, 41, 59, 0.75);
+
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================
+    BODY
+========================================================== */
+
+[data-theme="dark"] body {
+  background: var(--background);
+
+  color: var(--text);
+}
+
+/* ==========================================================
+    HEADER
+========================================================== */
+
+[data-theme="dark"] .header {
+  color: var(--text);
+}
+
+/* ==========================================================
+    CARD
+========================================================== */
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .quality-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .image-card,
+[data-theme="dark"] .empty-state {
+  background: var(--surface);
+}
+
+/* ==========================================================
+    DROP ZONE
+========================================================== */
+
+[data-theme="dark"] .drop-zone {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.15),
+    rgba(6, 182, 212, 0.1)
+  );
+
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .drop-zone:hover {
+  border-color: var(--primary);
+}
+
+/* ==========================================================
+    PREVIEW IMAGE
+========================================================== */
+
+[data-theme="dark"] .preview-box img {
+  background: #0f172a;
+
+  border-color: var(--border);
+}
+
+/* ==========================================================
+    INFO BOX
+========================================================== */
+
+[data-theme="dark"] .info-box {
+  background: #0f172a;
+}
+
+/* ==========================================================
+    BUTTON
+========================================================== */
+
+[data-theme="dark"] #clearAll {
+  background: transparent;
+
+  border: 2px solid var(--danger);
+}
+
+[data-theme="dark"] #themeToggle {
+  background: var(--surface);
+
+  color: var(--text);
+}
+
+/* ==========================================================
+    INPUT RANGE
+========================================================== */
+
+[data-theme="dark"] #quality {
+  background: #334155;
+}
+
+/* ==========================================================
+    FOOTER
+========================================================== */
+
+[data-theme="dark"] footer {
+  border-top: 1px solid var(--border);
+}
+
+/* ==========================================================
+    SCROLLBAR
+========================================================== */
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================================
+    TRANSITION
+========================================================== */
+
+html,
+body,
+.header,
+.card,
+.quality-card,
+.stat-card,
+.image-card,
+.drop-zone,
+button,
+footer {
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
