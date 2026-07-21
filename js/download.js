@@ -59,7 +59,7 @@ class DownloadManager {
 
         if (typeof window.downloadZip === "function") {
 
-            window.downloadZip(images);
+            window.zipManager.download(images);
 
             return;
 
