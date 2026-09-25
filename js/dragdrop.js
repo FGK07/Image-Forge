@@ -11,7 +11,16 @@ class DragDropManager {
         this.fileInput = document.getElementById("imageInput");
 
         this.supportedTypes = [
-            "image/png"
+            "image/png",
+            "image/jpeg",
+            "image/webp",
+            "image/gif",
+            "image/bmp",
+            "image/tiff",
+            "image/avif",
+            "image/x-icon",
+            "image/vnd.microsoft.icon",
+            "image/svg+xml"
         ];
 
         this.init();
@@ -130,7 +139,7 @@ class DragDropManager {
 
         if (!validFiles.length) {
 
-            alert("Only PNG images are supported.");
+            alert("Unsupported file format. Please use PNG, JPEG, WebP, GIF, BMP, TIFF, AVIF, or SVG.");
 
             return;
 

@@ -56,10 +56,34 @@
 
 [data-theme="dark"] .card,
 [data-theme="dark"] .quality-card,
+[data-theme="dark"] .format-card,
+[data-theme="dark"] .url-import,
 [data-theme="dark"] .stat-card,
 [data-theme="dark"] .image-card,
 [data-theme="dark"] .empty-state {
   background: var(--surface);
+}
+
+/* ==========================================================
+    URL INPUT DARK
+========================================================== */
+
+[data-theme="dark"] .url-input-group input {
+  background: #0f172a;
+
+  border-color: var(--border);
+
+  color: var(--text);
+}
+
+[data-theme="dark"] .url-input-group input:hover {
+  border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .url-input-group input:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }
 
 /* ==========================================================
@@ -123,6 +147,26 @@
 }
 
 /* ==========================================================
+    FORMAT SELECT
+========================================================== */
+
+[data-theme="dark"] .format-select-wrapper select {
+  background: #0f172a;
+
+  border-color: var(--border);
+
+  color: var(--text);
+}
+
+[data-theme="dark"] .format-select-wrapper select:hover {
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .format-select-wrapper select:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+/* ==========================================================
     FOOTER
 ========================================================== */
 
@@ -155,6 +199,8 @@ body,
 .header,
 .card,
 .quality-card,
+.format-card,
+.url-import,
 .stat-card,
 .image-card,
 .drop-zone,

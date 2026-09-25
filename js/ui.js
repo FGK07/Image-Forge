@@ -36,7 +36,7 @@ class UIManager {
 
                     <p>
 
-                        Upload PNG images to begin conversion.
+                        Upload images to begin conversion.
 
                     </p>
 

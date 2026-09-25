@@ -340,12 +340,293 @@ section {
 }
 
 /* ==========================================================
+    URL IMPORT
+========================================================== */
+
+.url-import {
+  margin-top: 20px;
+
+  background: var(--surface);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+
+  padding: 25px;
+
+  transition: var(--transition);
+
+  border: 1px solid transparent;
+}
+
+.url-import:hover {
+  border-color: var(--primary-light);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.url-import-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.url-import-header i {
+  color: var(--primary);
+
+  font-size: 18px;
+}
+
+.url-input-group {
+  display: flex;
+
+  gap: 12px;
+}
+
+.url-input-group input {
+  flex: 1;
+
+  padding: 14px 18px;
+
+  border: 2px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--background);
+
+  color: var(--text);
+
+  font-size: 15px;
+
+  font-family: inherit;
+
+  transition: var(--transition);
+}
+
+.url-input-group input::placeholder {
+  color: var(--text-light);
+}
+
+.url-input-group input:hover {
+  border-color: var(--primary-light);
+}
+
+.url-input-group input:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.url-input-group button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 14px 24px;
+
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+
+  color: white;
+
+  border-radius: var(--radius-md);
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  font-family: inherit;
+
+  white-space: nowrap;
+
+  transition: var(--transition);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.url-input-group button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.url-input-group button:active {
+  transform: translateY(0);
+}
+
+.url-input-group button.loading {
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+.url-input-group button.loading i {
+  animation: spin 0.8s linear infinite;
+}
+
+.url-status {
+  margin-top: 12px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  min-height: 0;
+
+  transition: all 0.3s ease;
+}
+
+.url-status:empty {
+  margin-top: 0;
+}
+
+.url-status.success {
+  color: var(--success);
+}
+
+.url-status.error {
+  color: var(--danger);
+}
+
+.url-status i {
+  margin-right: 6px;
+}
+
+/* ==========================================================
     CONTROL SECTION
 ========================================================== */
 
 .control-section {
   margin-bottom: 35px;
 }
+
+.controls-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+/* ==========================================================
+    FORMAT CARD
+========================================================== */
+
+.format-card {
+  background: var(--surface);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+
+  padding: 25px;
+
+  transition: var(--transition);
+
+  border: 1px solid transparent;
+}
+
+.format-card:hover {
+  border-color: var(--primary-light);
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.format-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.format-header span {
+  font-size: 17px;
+
+  font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.format-header i {
+  color: var(--primary);
+
+  font-size: 18px;
+}
+
+.format-select-wrapper {
+  position: relative;
+}
+
+.format-select-wrapper select {
+  width: 100%;
+
+  padding: 14px 45px 14px 18px;
+
+  border: 2px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--background);
+
+  color: var(--text);
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  font-family: inherit;
+
+  appearance: none;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.format-select-wrapper select:hover {
+  border-color: var(--primary);
+}
+
+.format-select-wrapper select:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.format-select-wrapper i {
+  position: absolute;
+
+  right: 16px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--primary);
+
+  font-size: 14px;
+
+  pointer-events: none;
+}
+
 
 .quality-card {
   background: var(--surface);
@@ -371,6 +652,18 @@ section {
   font-size: 17px;
 
   font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.quality-header span:first-child i {
+  color: var(--primary);
+
+  font-size: 18px;
 }
 
 #qualityValue {

@@ -7,7 +7,7 @@ class ZipManager {
 
     constructor() {
 
-        this.fileName = "ImageForge-WebP.zip";
+        this.fileName = "ImageForge-Converted.zip";
 
     }
 

@@ -15,6 +15,8 @@ class ImageConverter {
 
         this.qualityValue = document.getElementById("qualityValue");
 
+        this.formatSelect = document.getElementById("outputFormat");
+
         this.bindEvents();
 
     }
@@ -43,11 +45,90 @@ class ImageConverter {
 
     }
 
+    getOutputFormat() {
+
+        return this.formatSelect ? this.formatSelect.value : "webp";
+
+    }
+
+    getOutputMimeType() {
+
+        const format = this.getOutputFormat();
+
+        const mimeMap = {
+            webp: "image/webp",
+            png: "image/png",
+            jpeg: "image/jpeg",
+            avif: "image/avif",
+            bmp: "image/bmp",
+            ico: "image/x-icon"
+        };
+
+        return mimeMap[format] || "image/webp";
+
+    }
+
+    getOutputExtension() {
+
+        const format = this.getOutputFormat();
+
+        const extMap = {
+            webp: ".webp",
+            png: ".png",
+            jpeg: ".jpg",
+            avif: ".avif",
+            bmp: ".bmp",
+            ico: ".ico"
+        };
+
+        return extMap[format] || ".webp";
+
+    }
+
+    getSourceFormatLabel(file) {
+
+        const ext = file.name.split(".").pop().toLowerCase();
+
+        const labelMap = {
+            png: "PNG",
+            jpg: "JPEG",
+            jpeg: "JPEG",
+            webp: "WebP",
+            gif: "GIF",
+            bmp: "BMP",
+            tiff: "TIFF",
+            tif: "TIFF",
+            avif: "AVIF",
+            ico: "ICO",
+            svg: "SVG"
+        };
+
+        return labelMap[ext] || ext.toUpperCase();
+
+    }
+
+    getOutputFormatLabel() {
+
+        const format = this.getOutputFormat();
+
+        const labelMap = {
+            webp: "WebP",
+            png: "PNG",
+            jpeg: "JPEG",
+            avif: "AVIF",
+            bmp: "BMP",
+            ico: "ICO"
+        };
+
+        return labelMap[format] || format.toUpperCase();
+
+    }
+
     async addImages(files) {
 
         for (const file of files) {
 
-            if (!file.type.includes("png")) continue;
+            if (!file.type.startsWith("image/")) continue;
 
             await this.processImage(file);
 
@@ -59,7 +140,7 @@ class ImageConverter {
 
         const image = await this.loadImage(file);
 
-        const result = await this.convertToWebP(
+        const result = await this.convertImage(
             image,
             file
         );
@@ -102,7 +183,7 @@ class ImageConverter {
 
     }
 
-    async convertToWebP(image, file) {
+    async convertImage(image, file) {
 
         const canvas = document.createElement("canvas");
 
@@ -114,25 +195,40 @@ class ImageConverter {
 
         ctx.drawImage(image, 0, 0);
 
+        const mimeType = this.getOutputMimeType();
+
+        const quality = this.getQuality();
+
         const blob = await new Promise(resolve => {
 
             canvas.toBlob(
 
                 resolve,
 
-                "image/webp",
+                mimeType,
 
-                this.getQuality()
+                quality
 
             );
 
         });
 
+        const ext = this.getOutputExtension();
+
+        const outputName = file.name.replace(
+            /\.(png|jpe?g|webp|gif|bmp|tiff?|avif|ico|svg)$/i,
+            ext
+        );
+
+        const sourceLabel = this.getSourceFormatLabel(file);
+
+        const outputLabel = this.getOutputFormatLabel();
+
         return {
 
             id: crypto.randomUUID(),
 
-            name: file.name.replace(/\.png$/i, ".webp"),
+            name: outputName,
 
             originalFile: file,
 
@@ -145,6 +241,10 @@ class ImageConverter {
             convertedURL: URL.createObjectURL(blob),
 
             convertedSize: blob.size,
+
+            sourceLabel: sourceLabel,
+
+            outputLabel: outputLabel,
 
             saving: this.calculateSaving(
 
@@ -217,7 +317,7 @@ class ImageConverter {
                 <div class="preview-box">
 
                     <div class="preview-title">
-                        PNG
+                        ${image.sourceLabel}
                     </div>
 
                     <img
@@ -236,7 +336,7 @@ class ImageConverter {
                 <div class="preview-box">
 
                     <div class="preview-title">
-                        WebP
+                        ${image.outputLabel}
                     </div>
 
                     <img
@@ -275,7 +375,7 @@ class ImageConverter {
 
                 <div class="info-box">
 
-                    <h4>WebP</h4>
+                    <h4>${image.outputLabel}</h4>
 
                     <span>
                         ${this.formatSize(image.convertedSize)}
@@ -548,6 +648,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         }, 300);
+
+    });
+
+});
+
+/* ==========================================================
+    FORMAT CHANGE
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const formatSelect = document.getElementById("outputFormat");
+
+    if (!formatSelect) return;
+
+    formatSelect.addEventListener("change", async () => {
+
+        if (window.imageConverter.getImages().length) {
+
+            await window.imageConverter.reconvertAll();
+
+        }
 
     });
 
