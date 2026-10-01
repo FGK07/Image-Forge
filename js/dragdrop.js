@@ -71,46 +71,38 @@ class DragDropManager {
 
     registerDragEvents() {
 
+        let dragCounter = 0;
+
         [
             "dragenter",
-            "dragover"
-        ].forEach(eventName => {
-
-            this.dropZone.addEventListener(eventName, (event) => {
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-                this.dropZone.classList.add("dragover");
-
-            });
-
-        });
-
-        [
+            "dragover",
             "dragleave",
             "drop"
         ].forEach(eventName => {
-
-            this.dropZone.addEventListener(eventName, (event) => {
-
+            document.addEventListener(eventName, (event) => {
                 event.preventDefault();
-
                 event.stopPropagation();
-
-                this.dropZone.classList.remove("dragover");
-
             });
-
         });
 
-        this.dropZone.addEventListener("drop", (event) => {
+        document.addEventListener("dragenter", (event) => {
+            dragCounter++;
+            this.dropZone.classList.add("dragover");
+        });
+
+        document.addEventListener("dragleave", (event) => {
+            dragCounter--;
+            if (dragCounter === 0) {
+                this.dropZone.classList.remove("dragover");
+            }
+        });
+
+        document.addEventListener("drop", (event) => {
+            dragCounter = 0;
+            this.dropZone.classList.remove("dragover");
 
             const files = event.dataTransfer.files;
-
             this.handleFiles(files);
-
         });
 
     }
